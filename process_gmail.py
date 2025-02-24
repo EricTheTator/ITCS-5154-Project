@@ -1,5 +1,6 @@
 import os
 import mailbox
+import re
 
 def find_mbox_file(directory):
     """Finds the first .mbox file in a given directory."""
@@ -8,10 +9,21 @@ def find_mbox_file(directory):
             return os.path.join(directory, file)
     return None  # No MBOX file found
 
-def extract_emails_from_mbox(mbox_file):
-    """Extracts emails from an MBOX file and returns a list of cleaned email texts."""
+def clean_email_text(email_body):
+    """Removes signatures, replies, and unnecessary warnings."""
+    email_body = re.sub(r"(?i)--\s*\n.*$", "", email_body, flags=re.DOTALL)  # Signatures
+    email_body = re.sub(r"(?i)On.*wrote:.*", "", email_body, flags=re.DOTALL)  # Replies
+    email_body = re.sub(r"\[Caution: Email from External Sender.*?\]", "", email_body, flags=re.DOTALL)  # External warnings
+    email_body = re.sub(r"\n+", "\n", email_body)  # Excess new lines
+    return email_body.strip()
+
+def process_large_mbox(mbox_file, limit=50, filter_questions=True):
+    """Processes emails while filtering only VA-related questions."""
     mbox = mailbox.mbox(mbox_file)
-    emails = []
+    processed_count = 0
+    email_texts = []
+
+    print(f"Processing {mbox_file}... This may take a while for large files.")
 
     for message in mbox:
         if message.is_multipart():
@@ -22,23 +34,29 @@ def extract_emails_from_mbox(mbox_file):
         else:
             content = message.get_payload(decode=True).decode(errors="ignore")
 
-        if content:
-            emails.append(content.strip())
+        content = clean_email_text(content)
 
-    return emails
+        if filter_questions and "?" not in content:
+            continue  # Skip if no question is detected
 
-# Set the directory where your MBOX files are stored
-mbox_directory = "mbox_data"  # Adjust if needed
+        if content.strip():
+            email_texts.append(content.strip())
+            processed_count += 1
 
-# Find the first MBOX file in the directory
+        if processed_count >= limit:  # Stop after 'limit' emails
+            break
+
+    print(f"Finished processing {processed_count} emails.")
+
+    # Save extracted emails to a text file for later analysis
+    with open("extracted_questions.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(email_texts))
+
+mbox_directory = "mbox_data"
 mbox_file = find_mbox_file(mbox_directory)
 
 if mbox_file:
     print(f"Using MBOX file: {mbox_file}")
-    emails = extract_emails_from_mbox(mbox_file)
-
-    # Print first 5 emails for review
-    for i, email in enumerate(emails[:5]):
-        print(f"===== EMAIL {i+1} =====\n{email}\n{'='*40}\n")
+    process_large_mbox(mbox_file, limit=50, filter_questions=True)  # Adjust limit as needed
 else:
     print("No MBOX files found in the directory!")

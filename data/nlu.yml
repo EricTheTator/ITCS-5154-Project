@@ -166,3 +166,82 @@ nlu:
     - How do I remove a VA tuition hold?
 
 
+
+
+
+- intent: ask_bah_status
+  examples: |
+    - How does my summer schedule impact my BAH?
+    - If I take 6 credits in summer, do I still get full BAH?
+    - How do BAH payments work for half-term classes?
+    - Will my BAH be affected if I take hybrid courses?
+    - What happens to my housing allowance if I drop a class?
+
+- intent: ask_full_time_status
+  examples: |
+    - Am I considered a full-time student this semester?
+    - How many credit hours do I need to be full-time?
+    - What is the minimum course load for full-time status?
+    - If I take one class per term, will I still be full-time?
+    - How do I maintain full-time enrollment for VA benefits?
+
+- intent: ask_certification_status
+  examples: |
+    - Has my certification been processed yet?
+    - How do I check if I’m certified for VA benefits?
+    - When will I know if my enrollment is certified?
+    - The VA says they didn’t receive my certification. Can you check?
+    - I submitted my certification request, but I haven’t heard back. What should I do?
+
+- intent: ask_book_stipend
+  examples: |
+    - When will I receive my book stipend?
+    - How much money do I get for books?
+    - I didn’t get my book stipend this semester. Who do I contact?
+    - Is there a way to check my book stipend balance?
+    - Does my book stipend cover all course materials?
+
+- intent: ask_tuition_hold
+  examples: |
+    - Why do I have a tuition hold on my account?
+    - What is a protective hold, and how does it work?
+    - How do I get a VA hold removed from my account?
+    - Will my classes be dropped if there is a tuition hold?
+    - Can you confirm if my tuition hold has been lifted?
+
+- intent: ask_chapter35_benefits
+  examples: |
+    - How does Chapter 35 cover tuition?
+    - Do I need to renew Chapter 35 benefits every semester?
+    - Can I use Chapter 35 benefits at another school?
+    - Will my tuition be adjusted retroactively if I became eligible for Chapter 35?
+    - Am I eligible for financial coaching as a Chapter 35 student?
+
+- intent: ask_voc_rehab_process
+  examples: |
+    - How do I apply for Voc Rehab benefits?
+    - What’s the process for using VR&E at UNC Charlotte?
+    - Do I need to submit extra paperwork for Voc Rehab?
+    - How long does it take to get approved for VR&E?
+    - Who do I contact if I have questions about my VR&E benefits?
+
+- intent: ask_degree_audit
+  examples: |
+    - Can I get a degree audit for my records?
+    - What’s my anticipated graduation date?
+    - How do I request a degree audit?
+    - Does my VR&E counselor need my graduation timeline?
+    - Who should I contact for my degree completion status?
+
+
+- intent: ask_full_time_status
+  examples: |
+    - Am I considered full-time for [Spring](semester)?
+    - If I take [6](credit_hours) credit hours in [Summer](semester), am I full-time?
+    - What is the full-time credit requirement for [Fall](semester)?
+    - How many credits do I need in [Spring A](semester) to be full-time?
+    - Is [9](credit_hours) credits in [Fall B](semester) full-time?
+
+entities:
+  - semester
+  - credit_hours

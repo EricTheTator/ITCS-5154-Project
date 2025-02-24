@@ -21,6 +21,15 @@ intents:
   - check_book_balance
   - tuition_hold
   - check_certification
+  - ask_bah_status
+  - ask_full_time_status
+  - ask_certification_status
+  - ask_book_stipend
+  - ask_tuition_hold
+  - ask_chapter35_benefits
+  - ask_voc_rehab_process
+  - ask_degree_audit
+  - inform
 
 
 responses:
@@ -133,10 +142,56 @@ responses:
     - text: "You can apply for VA benefits at [VA.gov](https://www.va.gov/education/how-to-apply/). Let me know if you need help!"
 
 
+  utter_ask_bah_status:
+    - text: "BAH is calculated based on your enrollment status. If you take less than full-time credits, it may be reduced."
+
+  utter_ask_full_time_status:
+   - text: "For VA benefits, full-time enrollment is usually 12 credit hours for undergraduates and 9 for graduates. Summer sessions are calculated differently."
+
+  utter_ask_certification_status:
+    - text: "Your certification is processed within 5-10 business days after submission. You can check with Military & Veteran Services for updates."
+
+  utter_ask_book_stipend:
+    - text: "The book stipend is $41.67 per credit hour, up to $1,000 per academic year."
+
+  utter_ask_tuition_hold:
+    - text: "A tuition hold is placed to prevent your classes from being dropped before VA payment is processed. It will be removed once tuition is paid."
+
+  utter_ask_chapter35_benefits:
+    - text: "Chapter 35 provides a monthly stipend but does not directly cover tuition. You may need to pay tuition upfront and receive reimbursements."
+
+  utter_ask_voc_rehab_process:
+    - text: "Voc Rehab (VR&E) requires a meeting with a VA counselor to determine eligibility. They will issue a Purchase Order (PO) for your tuition."
+
+  utter_ask_degree_audit:
+    - text: "You can request a degree audit through your student portal or by contacting your academic advisor."
+
+  utter_ask_semester:
+    - text: "Which semester are you asking about? (Spring, Summer, or Fall, including A or B terms)"
+
+  utter_ask_credit_hours:
+    - text: "How many credit hours are you planning to take?"
+
+
 
 actions:
   - action_check_book_balance
   - action_check_certification
+  - action_check_full_time_status
+
+
+slots:
+  semester:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: semester
+  credit_hours:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: credit_hours
+
 
 
 session_config:

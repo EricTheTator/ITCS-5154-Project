@@ -62,6 +62,18 @@ stories:
 
 
 
+- story: Determine full-time status
+  steps:
+  - intent: ask_full_time_status
+  - action: utter_ask_semester
+  - intent: inform
+    entities:
+      - semester: "Spring"
+  - action: utter_ask_credit_hours
+  - intent: inform
+    entities:
+      - credit_hours: "6"
+  - action: action_check_full_time_status
 
 
 
