@@ -1,0 +1,168 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+
+
+
+
+
+
+
+
+
+
+- intent: ask_gi_bill
+  examples: |
+    - What does the Post-9/11 GI Bill cover?
+    - How do I transfer my GI Bill to my child?
+    - Can I use the GI Bill for online classes?
+    - How much will the GI Bill pay for tuition?
+
+- intent: ask_voc_rehab
+  examples: |
+    - What is Chapter 31 Vocational Rehabilitation?
+    - How do I apply for Voc Rehab benefits?
+    - What does VR&E cover?
+    - Does Voc Rehab pay for books and parking?
+
+- intent: ask_dependent_benefits
+  examples: |
+    - What benefits does Chapter 35 provide?
+    - Can my child get VA education benefits?
+    - How do I apply for Dependent Education Assistance?
+    - What is the Fry Scholarship?
+
+- intent: ask_payment_status
+  examples: |
+    - When will my VA payment arrive?
+    - Has my tuition been paid by the VA?
+    - I haven't received my book stipend.
+    - Why is my BAH lower this month?
+
+- intent: ask_eligibility
+  examples: |
+    - Am I eligible for the Post-9/11 GI Bill?
+    - Who qualifies for Chapter 31 benefits?
+    - What are the service requirements for VA benefits?
+    - How do I check my VA education eligibility?
+
+- intent: ask_certification_process
+  examples: |
+    - How do I get certified for VA benefits at UNC Charlotte?
+    - What do I need to submit to get my VA benefits?
+    - When should I submit my Enrollment Certification?
+    - What happens if I drop a class?
+
+- intent: post911_eligibility
+  examples: |
+    - Am I eligible for the Post 9/11 GI Bill?
+    - What are the requirements for Chapter 33 benefits?
+    - Can I transfer my GI Bill benefits?
+    - How many months do I need for full benefits?
+
+- intent: book_stipend
+  examples: |
+    - How much book stipend do I get?
+    - When will I get my book money?
+    - Does the VA pay for my books?
+    - What is the rate for book stipends?
+    - Do I have money left for books?
+
+- intent: tuition_hold
+  examples: |
+    - Why do I have a hold on my account?
+    - What does a protective hold mean?
+    - Can my classes be dropped if I have a VA hold?
+    - How do I remove a VA tuition hold?
+
+

@@ -1,0 +1,18 @@
+{
+  "0": "affirm",
+  "1": "ask_certification_process",
+  "2": "ask_dependent_benefits",
+  "3": "ask_eligibility",
+  "4": "ask_gi_bill",
+  "5": "ask_payment_status",
+  "6": "ask_voc_rehab",
+  "7": "book_stipend",
+  "8": "bot_challenge",
+  "9": "deny",
+  "10": "goodbye",
+  "11": "greet",
+  "12": "mood_great",
+  "13": "mood_unhappy",
+  "14": "post911_eligibility",
+  "15": "tuition_hold"
+}

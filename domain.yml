@@ -1,0 +1,144 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_gi_bill
+  - ask_voc_rehab
+  - ask_dependent_benefits
+  - ask_payment_status
+  - ask_eligibility
+  - ask_certification_process
+  - post911_eligibility
+  - eligibility_veteran
+  - confirm
+  - book_stipend
+  - check_book_balance
+  - tuition_hold
+  - check_certification
+
+
+responses:
+  utter_greet:
+    - text: "Hey! How are you?"
+
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_happy:
+    - text: "Great, carry on!"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_ask_gi_bill: 
+    - text: |
+        The **Post-9/11 GI Bill (Chapter 33)** covers tuition, fees, a monthly housing allowance, and a book stipend.
+        - **Tuition:** Covers full in-state tuition for public schools.
+        - **Housing Allowance:** Based on your enrollment and the UNC Charlotte ZIP code.
+        - **Book Stipend:** Up to $1,000 per academic year.
+
+  utter_ask_voc_rehab:
+    - text: |
+        **Vocational Rehabilitation & Employment (VR&E - Chapter 31)** provides tuition, fees, books, supplies, parking, and a monthly housing allowance.
+        **Eligibility:** Must have a **service-connected disability rating of at least 20%**.
+        - Apply through [ebenefits.va.gov](https://www.ebenefits.va.gov/ebenefits/homepage).
+        - Meet with a **VA Voc Rehab counselor** for an evaluation.
+        - If approved, the VA will send a **Purchase Order (PO)** to UNC Charlotte to cover expenses.
+
+  utter_ask_dependent_benefits:
+    - text: |
+        **Chapter 35 (Dependents' Education Assistance - DEA)**
+        - Provides **up to 36 months of education benefits** to children/spouses of **100% disabled veterans**.
+        - Monthly stipend: ~$1,401 (paid to the student).
+        - Does NOT cover tuition directly (students must pay tuition themselves).
+        **Fry Scholarship**: Available for children/spouses of service members who **died in the line of duty**.
+
+  utter_ask_payment_status:
+    - text: |
+        **VA Payment Processing at UNC Charlotte**
+        - Tuition is **submitted to the VA after the add/drop period**.
+        - **Book stipends** are paid at the start of the semester.
+        - **Housing Allowance (BAH)** is paid **at the beginning of each month** for the previous month.
+        - If you haven't received payment, contact **VA Education Hotline at 1-888-442-4551** or check your VA portal.
+
+  utter_ask_eligibility:
+    - text: |
+        Eligibility depends on **your service history**:
+        - **Chapter 33 (Post-9/11 GI Bill):** 90+ days active duty after 9/11.
+        - **Chapter 31 (VR&E):** 20%+ service-connected disability.
+        - **Chapter 35 (DEA):** Child/spouse of a 100% disabled veteran.
+        - **Chapter 1606 (Selected Reserve):** 6-year contract in the Reserves.
+        Check eligibility at [VA.gov](https://www.va.gov/education/eligibility/).
+
+  utter_ask_certification_process:
+    - text: |
+        **How to Get Certified at UNC Charlotte**
+        - Submit your **VA Benefit Enrollment Form** through the **Veterans Portal**.
+        - Upload your **Certificate of Eligibility (COE)**.
+        - Your enrollment will be **certified with the VA**, and a **Protective Hold** will be placed on your account.
+        - If you **drop a class**, notify the VA Office immediately to avoid overpayments.
+        - Tuition payments are processed **after the add/drop period**.
+        For more details, visit the **Veterans Services Office (VSO)** or email **veterans@uncc.edu**.
+
+  utter_post911_eligibility:
+    - text: "Are you a veteran, active duty, or a dependent using transferred benefits?"
+      buttons:
+        - title: "Veteran"
+          payload: "/eligibility_veteran"
+        - title: "Active Duty"
+          payload: "/eligibility_active_duty"
+        - title: "Dependent"
+          payload: "/eligibility_dependent"
+
+  utter_eligibility_veteran:
+    - text: "Since you’re a veteran, did you serve at least 90 days on active duty after 9/11?"
+      buttons:
+        - title: "Yes"
+          payload: "/confirm"
+        - title: "No"
+          payload: "/deny"
+
+  utter_book_stipend:
+    - text: "Your book stipend is $41.67 per credit hour, up to $1,000 per academic year. Need help checking your balance?"
+      buttons:
+        - title: "Yes, check balance"
+          payload: "/check_book_balance"
+        - title: "No, I just needed info"
+          payload: "/thanks"
+
+  utter_tuition_hold:
+    - text: "A protective hold prevents your classes from being dropped before VA pays tuition. Need help verifying your certification?"
+      buttons:
+        - title: "Yes, check my certification"
+          payload: "/check_certification"
+        - title: "No, just wanted to know"
+          payload: "/thanks"
+
+
+
+  utter_va_application_steps:
+    - text: "You can apply for VA benefits at [VA.gov](https://www.va.gov/education/how-to-apply/). Let me know if you need help!"
+
+
+
+actions:
+  - action_check_book_balance
+  - action_check_certification
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,3 +1,4 @@
 # Ignore virtual environments
 rasa_env/
 
+mbox_data/

@@ -1,0 +1,96 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
+- story: User asks about GI Bill
+  steps:
+  - intent: ask_gi_bill
+  - action: utter_ask_gi_bill
+
+- story: User asks about Vocational Rehab
+  steps:
+  - intent: ask_voc_rehab
+  - action: utter_ask_voc_rehab
+
+- story: User asks about dependent benefits
+  steps:
+  - intent: ask_dependent_benefits
+  - action: utter_ask_dependent_benefits
+
+- story: User asks about payment status
+  steps:
+  - intent: ask_payment_status
+  - action: utter_ask_payment_status
+
+- story: User asks about eligibility
+  steps:
+  - intent: ask_eligibility
+  - action: utter_ask_eligibility
+
+- story: User asks about certification process
+  steps:
+  - intent: ask_certification_process
+  - action: utter_ask_certification_process
+
+
+
+
+
+
+
+
+
+- story: Check Post 9/11 Eligibility
+  steps:
+  - intent: post911_eligibility
+  - action: utter_post911_eligibility
+  - intent: eligibility_veteran
+  - action: utter_eligibility_veteran
+  - intent: confirm
+  - action: utter_va_application_steps
+
+- story: Student Asks About Book Stipend
+  steps:
+  - intent: book_stipend
+  - action: utter_book_stipend
+  - intent: check_book_balance
+  - action: action_check_book_balance
+
+- story: Tuition Hold Explanation
+  steps:
+  - intent: tuition_hold
+  - action: utter_tuition_hold
+  - intent: check_certification
+  - action: action_check_certification
+
+actions:
+  - action_check_book_balance
+  - action_check_certification
